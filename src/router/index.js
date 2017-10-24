@@ -4,6 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import TestRouter from '@/components/TestRouter'
 import BMap from '@/components/Map'
 
+import TestChild from '@/components/TestChild'
+
 Vue.use(Router)
 
 export default new Router({
@@ -16,7 +18,14 @@ export default new Router({
     {
       path: '/testrouter',
       name: 'testrouter',
-      component: TestRouter
+      component: TestRouter,
+      children: [
+        {
+          path: 'child',
+          name: 'child',
+          component: TestChild
+        }
+      ]
     },
     {
       path: '/map',
