@@ -1,32 +1,33 @@
 <template>
     <header class="row">
-        <transition name="fade">
-            <div class="menu" v-if="show">
-                <ul class="menu">
-                    <li class="active">首页</li>
-                    <li>我要买</li>
-                    <li>我要卖</li>
-                    <li>账户</li>
-                </ul>
-            </div>
-        </transition>
-        <div class="header col-xs-2">
-            <h5><span class="glyphicon glyphicon-th" v-on:click.stop="openMenu"></span></h5>
-            
+        <div class="menu col-xs-12" >
+            <ul class="menu">
+                <li :class="{ active : homeActive}">
+                    <router-link to="/">首页</router-link>
+                </li>
+                <li :class="{ active : saleListActive}">
+                    <router-link to="sale-list">我要买</router-link>
+                    <!--<a v-link="{path: '/sale-list'}">我要买</a>-->
+                </li>
+                <li>
+                    <router-link to="buy-list">我要卖</router-link>
+                </li>
+                <li>
+                    <router-link to="my-account">我要卖</router-link>
+                </li>
+            </ul>
         </div>
-        <div class="header col-xs-10">
-            <h3 class="pull-left">XXXX</h3>
+        <div class="header col-xs-12">
+            <h1>中国农业种植信息网</h1>
         </div>
     </header>
 </template>
 <script>
 export default {
   name: 'header',
-  props: ['show'],
+  props: ['homeActive', 'saleListActive'],
   methods: {
-    openMenu: function() {
-        this.$emit('openMenu');//触发父组件的事件
-    }
+    
   }
   // data: function () {
   //   return {
@@ -42,6 +43,7 @@ header {
 }
 div.header {
     color:#fff;
+    text-align: center;
 }
 div.header h5 {
     margin-top: 25px;
@@ -49,10 +51,9 @@ div.header h5 {
 
 /*菜单*/
 div.menu {
-    height: 300px;
-    width:200px;
+    height: 40px;
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     background-color: #50aa47;
     color: #fff;
@@ -60,15 +61,18 @@ div.menu {
     font-size: 18px;
 }
 ul.menu {
-    margin-top: 20px;
-    padding-left: 0;
-    margin-left: 0;
     list-style-type: none;
 }
 ul.menu li {
-    padding-left: 30px;
-    height: 30px;
-    line-height: 30px;
+    display:block;
+    float:left;
+    width:25%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+ul.menu li a {
+    color: #fff;
 }
 ul.menu li.active {
     background-color: #305e2c;
