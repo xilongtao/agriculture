@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <menus/>
+    <my-header/>
+    <h1>{{ msg }}111</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -21,13 +23,17 @@
 </template>
 
 <script>
+import Menus from '@/components/Menu'
+import MyHeader from '@/components/Header'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  components: { Menus, MyHeader }
 }
 </script>
 

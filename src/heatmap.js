@@ -1,11 +1,11 @@
-export function MP(ak) {
+export function HEATMP() {
   return new Promise(function (resolve, reject) {
     window.onload = function () {
-      resolve(BMap)
+      resolve(BMapLib)
     }
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src = "http://api.map.baidu.com/api?v=2.0&ak="+ak+"&s=1&callback=init";
+    script.src = "http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js";
     script.onerror = reject;
     document.head.appendChild(script);
   })
