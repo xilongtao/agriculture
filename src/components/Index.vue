@@ -4,9 +4,10 @@
         <!--搜索模块-->
         <div class="row">
             <div class="col-xs-12">
-                <div id="myMap">
-                    
-                </div>
+                <baidu-map class="map" :center="{lng: 116.404, lat: 39.915}" :zoom="14" id="myMap">
+                  <bml-heatmap :data="data" :max="100" :radius="20">
+                  </bml-heatmap>
+                </baidu-map>
             </div>
             <div class="select-box col-xs-12">
                 <select class="form-control">
@@ -49,33 +50,30 @@
         </div>
     </div>
 </template>
-<script src="http://api.map.baidu.com/api?v=2.0&ak=mExNf3ontCjKSISyGh77yQdu&s=1&callback=init"></script>
 <script>
 import MyHeader from '@/components/Header'
 import MyConfig from '../config'
-// import MP from './map'
+
+import {BaiduMap} from 'vue-baidu-map'
+import {BmlHeatmap} from 'vue-baidu-map'
 
 export default {
   name: 'index',
-  components: { MyHeader },
+  components: { MyHeader, BmlHeatmap, BaiduMap },
   data: function () {
     return {
         pshow: false,
-        myChart: null
-        // bmap: null,
-        // bmaplib: null,
-        // bmapInstance: null
+        data: [
+            {lng: 116.418261, lat: 39.921984, count: 50},
+            {lng: 116.423332, lat: 39.916532, count: 51},
+            {lng: 116.419787, lat: 39.930658, count: 15}
+            // ...此处添加更多的数据集
+          ]
     }
   },
   methods: {
     toggleMenu: function() {
       this.pshow = !this.pshow
-    },
-    initMap: function() {
-        var map = new this.bmap.Map('myMap')
-        var point = new this.bmap.Point(116.418261, 39.921984);
-        map.centerAndZoom(point, 5);             // 初始化地图，设置中心点坐标和地图级别
-        map.enableScrollWheelZoom(); // 允许滚轮缩放
     }
   },
   mounted: function () {
@@ -85,6 +83,7 @@ export default {
     //     this.bmap = BMap;
     //   })
     // })
+        /*
         var echarts = require('echarts/lib/echarts')
         require('echarts/lib/chart/heatmap')
         require('echarts/extension/bmap/bmap')
@@ -93,46 +92,44 @@ export default {
         this.myChart = echarts.init(document.getElementById('myMap'))
         var myChart = this.myChart
 
-        // MP("mExNf3ontCjKSISyGh77yQdu").then( BMap => {
 
-            $.get(MyConfig.apiDomain + 'testvue2/static_html/heatData.php', function (res) {
+        $.get(MyConfig.apiDomain + 'testvue2/static_html/heatData.php', function (res) {
 
-                var points = [].concat.apply([], res.map(function (track) {
-                    return track.map(function (seg) {
-                        return seg.coord.concat([1]);
-                    });
-                }));
-
-                myChart.setOption({
-                    animation: false,
-                    bmap: {
-                        center: [120.13066322374, 30.240018034923],
-                        zoom: 14,
-                        roam: true
-                    },
-                    visualMap: {
-                        show: false,
-                        top: 'top',
-                        min: 0,
-                        max: 5,
-                        seriesIndex: 0,
-                        calculable: true,
-                        inRange: {
-                            color: ['blue', 'blue', 'green', 'yellow', 'red']
-                        }
-                    },
-                    series: [{
-                        type: 'heatmap',
-                        coordinateSystem: 'bmap',
-                        data: points,
-                        pointSize: 5,
-                        blurSize: 6
-                    }]
+            var points = [].concat.apply([], res.map(function (track) {
+                return track.map(function (seg) {
+                    return seg.coord.concat([1]);
                 });
-            }, 'json')
+            }));
 
+            myChart.setOption({
+                animation: false,
+                bmap: {
+                    center: [120.13066322374, 30.240018034923],
+                    zoom: 14,
+                    roam: true
+                },
+                visualMap: {
+                    show: false,
+                    top: 'top',
+                    min: 0,
+                    max: 5,
+                    seriesIndex: 0,
+                    calculable: true,
+                    inRange: {
+                        color: ['blue', 'blue', 'green', 'yellow', 'red']
+                    }
+                },
+                series: [{
+                    type: 'heatmap',
+                    coordinateSystem: 'bmap',
+                    data: points,
+                    pointSize: 5,
+                    blurSize: 6
+                }]
+            });
+        }, 'json')
+        */
 
-        // })
   }
 }
 </script>
