@@ -1,5 +1,6 @@
 <template>
     <div class="common-empty">
+    
     </div>
 </template>
 <style>

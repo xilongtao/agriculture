@@ -10,10 +10,10 @@ import BMap from '@/components/Map'
 
 import TestChild from '@/components/TestChild'
 
-Router.prototype.go  = function () {
-  this.isBack = true
-  window.history.go(-1)
-}
+// Router.prototype.go  = function () {
+//   this.isBack = true
+//   window.history.go(-1)
+// }
 
 Vue.use(Router)
 
@@ -34,15 +34,46 @@ export default new Router({
         {
           path: 'index',
           name: 'Index-Index',
-          component: CommonIndex
+          component: CommonIndex,
+          meta: {
+            progress: {
+              func: [
+                {call: 'color', modifier: 'temp', argument: '#ffb000'},
+                {call: 'fail', modifier: 'temp', argument: '#6e0000'},
+                {call: 'location', modifier: 'temp', argument: 'top'},
+                {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
+              ]
+            }
+          }
         },
         {
           path: 'sale-list',
           name: 'Index-Sale-List',
-          component: SaleList
+          component: SaleList,
+          meta: {
+            progress: {
+              func: [
+                {call: 'color', modifier: 'temp', argument: '#ffb000'},
+                {call: 'fail', modifier: 'temp', argument: '#6e0000'},
+                {call: 'location', modifier: 'temp', argument: 'top'},
+                {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
+              ]
+            }
+          }
         }
-      ]
-    },
+      ],
+      meta: {
+        progress: {
+          func: [
+            {call: 'color', modifier: 'temp', argument: '#ffb000'},
+            {call: 'fail', modifier: 'temp', argument: '#6e0000'},
+            {call: 'location', modifier: 'temp', argument: 'top'},
+            {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
+          ]
+        }
+      }
+    }
+    /*
     {
       path: '/sale-list',
       name: 'sale-list',
@@ -64,6 +95,6 @@ export default new Router({
       path: '/map',
       name: 'map',
       component: BMap
-    }
+    }*/
   ]
 })
