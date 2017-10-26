@@ -60,7 +60,7 @@ div.menu {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #50aa47;
+    background-color: #56c14b;
     color: #fff;
     z-index: 2;
     font-size: 18px;

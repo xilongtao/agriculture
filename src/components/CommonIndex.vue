@@ -2,6 +2,9 @@
 
     <!--搜索模块-->
     <div class="row">
+        <div class="col-xs-12 text-center">
+            <p class="bg-success common-index-title">中国苹果分布图</p>
+        </div>
         <div class="col-xs-12">
             <baidu-map class="map" :center="{lng: 116.404, lat: 39.915}" :zoom="6" id="myMap" ak="mExNf3ontCjKSISyGh77yQdu" :dragging="true" :scroll-wheel-zoom="true" @ready="handler"><!--@ready="handler"-->
               <bml-heatmap :data="data" :max="100" :radius="20">
@@ -139,5 +142,8 @@ div.submit button {
 }
 div.info {
     margin-top: 5px;
+}
+p.common-index-title {
+    margin: 5px 0;
 }
 </style>

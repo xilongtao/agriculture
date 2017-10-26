@@ -7,7 +7,7 @@ import List from '@/components/List'
 import SaleList from '@/components/SaleList'
 import TestRouter from '@/components/TestRouter'
 
-import NProgress from 'NProgress'
+import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 import TestChild from '@/components/TestChild'
