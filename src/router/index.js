@@ -6,7 +6,9 @@ import CommonIndex from '@/components/CommonIndex'
 import List from '@/components/List'
 import SaleList from '@/components/SaleList'
 import TestRouter from '@/components/TestRouter'
-import BMap from '@/components/Map'
+
+import NProgress from 'NProgress'
+import 'nprogress/nprogress.css'
 
 import TestChild from '@/components/TestChild'
 
@@ -15,10 +17,11 @@ import TestChild from '@/components/TestChild'
 //   window.history.go(-1)
 // }
 
+
+
 Vue.use(Router)
 
-
-export default new Router({
+const MyRouter = new Router({
   routes: [
     /*{
       path: '/',
@@ -34,44 +37,14 @@ export default new Router({
         {
           path: 'index',
           name: 'Index-Index',
-          component: CommonIndex,
-          meta: {
-            progress: {
-              func: [
-                {call: 'color', modifier: 'temp', argument: '#ffb000'},
-                {call: 'fail', modifier: 'temp', argument: '#6e0000'},
-                {call: 'location', modifier: 'temp', argument: 'top'},
-                {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
-              ]
-            }
-          }
+          component: CommonIndex
         },
         {
           path: 'sale-list',
           name: 'Index-Sale-List',
-          component: SaleList,
-          meta: {
-            progress: {
-              func: [
-                {call: 'color', modifier: 'temp', argument: '#ffb000'},
-                {call: 'fail', modifier: 'temp', argument: '#6e0000'},
-                {call: 'location', modifier: 'temp', argument: 'top'},
-                {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
-              ]
-            }
-          }
+          component: SaleList
         }
-      ],
-      meta: {
-        progress: {
-          func: [
-            {call: 'color', modifier: 'temp', argument: '#ffb000'},
-            {call: 'fail', modifier: 'temp', argument: '#6e0000'},
-            {call: 'location', modifier: 'temp', argument: 'top'},
-            {call: 'transition', modifier: 'temp', argument: {speed: '1.5s', opacity: '0.6s', termination: 400}}
-          ]
-        }
-      }
+      ]
     }
     /*
     {
@@ -98,3 +71,12 @@ export default new Router({
     }*/
   ]
 })
+MyRouter.beforeEach((to, from, next) => {
+  NProgress.start();
+  next();
+});
+MyRouter.afterEach((to, from, next) => {
+  NProgress.done();
+});
+
+export default MyRouter
