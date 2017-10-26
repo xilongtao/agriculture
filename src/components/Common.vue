@@ -1,7 +1,9 @@
 <template>
     <div class="container-fluid">
         <my-header home-active="true"></my-header>
-        <router-view />
+        <transition :name="transitionName">
+            <router-view class="child-view" />
+        </transition>
         <empty ></empty>
     </div>
 </template>
@@ -11,7 +13,12 @@ import Empty from '@/components/Empty'
 
 export default {
   name: 'common',
-  components: {MyHeader, Empty}
+  components: {MyHeader, Empty},
+  data: function () {
+    return {
+        transitionName: 'slide-left'
+    }
+  }
 }
 </script>
 
