@@ -27,11 +27,11 @@
             <div style="clear:both;"></div>
         </div>
         <div class="submit col-xs-12">
-            <button class="btn btn-xs btn-success" @click="getData">{{buttonStr}}</button>
+            <button class="btn btn-sm btn-success" @click="getData">{{buttonStr}}</button>
         </div>
         <!--信息表格-->
         <div class="col-xs-12 info">
-            <table class="table table-bordered table-slashes">
+            <table class="table table-bordered">
                 <tr>
                     <td>种植面积</td>
                     <td>3000亩</td>
@@ -120,7 +120,7 @@ export default {
 <style>
     /*首页地图*/
 #myMap {
-    height: 400px;
+    height: 350px;
     margin-top: 5px;
 }
 div.select-box {
