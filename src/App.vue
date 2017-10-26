@@ -28,7 +28,6 @@ export default {
             } else {
                 this.transitionName = 'slide-left'
             }
-            console.log(this.transitionName)
             this.$router.isBack = false
         }
 　　}

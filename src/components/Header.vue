@@ -13,7 +13,7 @@
                     <router-link to="buy-list">我要卖</router-link>
                 </li>
                 <li>
-                    <router-link to="my-account">我要卖</router-link>
+                    <router-link to="my-account">账户</router-link>
                 </li>
             </ul>
         </div>
@@ -25,9 +25,14 @@
 <script>
 export default {
   name: 'header',
-  props: ['homeActive', 'saleListActive'],
-  methods: {
-    
+
+  computed: {
+    homeActive: function() {
+        return this.$route.path == '/index'
+    }, 
+    saleListActive: function () {
+        return this.$route.path == '/sale-list'
+    }
   }
   // data: function () {
   //   return {

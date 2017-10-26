@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
+import Common from '@/components/Common'
+import CommonIndex from '@/components/CommonIndex'
 import List from '@/components/List'
+import SaleList from '@/components/SaleList'
 import TestRouter from '@/components/TestRouter'
 import BMap from '@/components/Map'
 
@@ -17,10 +20,28 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
+    /*{
       path: '/',
       name: 'Index',
       component: Index
+    },*/
+    {
+      path: '/',
+      name: 'Index',
+      redirect: '/index',
+      component: Common,
+      children: [
+        {
+          path: 'index',
+          name: 'Index-Index',
+          component: CommonIndex
+        },
+        {
+          path: 'sale-list',
+          name: 'Index-Sale-List',
+          component: SaleList
+        }
+      ]
     },
     {
       path: '/sale-list',

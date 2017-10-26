@@ -1,3 +1,9 @@
+if (process.env.NODE_ENV == 'production') {
+    var apiDomain = '';
+} else {
+    var apiDomain = 'http://www.cn/'
+}
+
 export default {
-    apiDomain: "http://www.cn/"
+    heatMapDataApi: apiDomain + 'heatmap'
 }
