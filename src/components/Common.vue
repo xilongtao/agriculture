@@ -11,6 +11,7 @@
 import MyHeader from '@/components/Header'
 import Empty from '@/components/Empty'
 
+
 export default {
   name: 'common',
   components: {MyHeader, Empty}

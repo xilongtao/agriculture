@@ -56,7 +56,7 @@ div.header h5 {
 
 /*菜单*/
 div.menu {
-    height: 40px;
+    height: 35px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -64,6 +64,7 @@ div.menu {
     color: #fff;
     z-index: 2;
     font-size: 18px;
+    border-top: 1px solid #fff;
 }
 ul.menu {
     list-style-type: none;
@@ -72,8 +73,8 @@ ul.menu li {
     display:block;
     float:left;
     width:25%;
-    height: 40px;
-    line-height: 40px;
+    height: 35px;
+    line-height: 35px;
     text-align: center;
 }
 ul.menu li a {
