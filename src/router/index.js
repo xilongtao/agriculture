@@ -3,14 +3,13 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Common from '@/components/Common'
 import CommonIndex from '@/components/CommonIndex'
-import List from '@/components/List'
 import SaleList from '@/components/SaleList'
-import TestRouter from '@/components/TestRouter'
+import BuyList from '@/components/BuyList'
+import Login from '@/components/account/Login'
 
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-import TestChild from '@/components/TestChild'
 
 // Router.prototype.go  = function () {
 //   this.isBack = true
@@ -23,11 +22,7 @@ Vue.use(Router)
 
 const MyRouter = new Router({
   routes: [
-    /*{
-      path: '/',
-      name: 'Index',
-      component: Index
-    },*/
+    /*页面的*/
     {
       path: '/',
       name: 'Index',
@@ -43,32 +38,20 @@ const MyRouter = new Router({
           path: 'sale-list',
           name: 'Index-Sale-List',
           component: SaleList
-        }
-      ]
-    }
-    /*
-    {
-      path: '/sale-list',
-      name: 'sale-list',
-      component: List
-    },
-    {
-      path: '/testrouter',
-      name: 'testrouter',
-      component: TestRouter,
-      children: [
+        },
         {
-          path: 'child',
-          name: 'child',
-          component: TestChild
+          path: 'buy-list',
+          name: 'Index-Buy-List',
+          component: BuyList
         }
       ]
     },
+    /*登录的*/
     {
-      path: '/map',
-      name: 'map',
-      component: BMap
-    }*/
+      path: '/login',
+      name: 'Login',
+      component: Login
+    }
   ]
 })
 MyRouter.beforeEach((to, from, next) => {

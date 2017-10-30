@@ -13,7 +13,7 @@
                     <router-link to="buy-list">我要卖</router-link>
                 </li>
                 <li>
-                    <router-link to="my-account">账户</router-link>
+                    <router-link to="login">账户</router-link>
                 </li>
             </ul>
         </div>
