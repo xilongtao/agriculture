@@ -70,22 +70,7 @@ export default {
   },
   methods:  {
     handler: function() {
-        var tmpData = [];
-        //构造100个假数据
-        for (let i = 0; i < 100; i ++) {
-            let item = {lng: 0, lat: 0, count: 0}
-            let r = Math.random();
-            let lng = r * 40 + 88 //r * 62 + 73
-            lng = lng.toFixed(6)
-            let lat = r * 35 + 10 // r * 70 + 3
-            lat = lat.toFixed(6)
-            let count = Math.ceil(r * 100)
-            item.lng = parseFloat(lng);
-            item.lat = parseFloat(lat);
-            item.count = count
-            tmpData.push(item)
-        }
-        this.data = tmpData
+        this.getData()
         // console.log(this.data)
         // this.data = [
         //     {lng: 116.418261, lat: 39.921984, count: 50},
@@ -103,11 +88,13 @@ export default {
         for (let i = 0; i < 100; i ++) {
             let item = {lng: 0, lat: 0, count: 0}
             let r = Math.random();
-            let lng = r * 40 + 88 //r * 62 + 73
+            let lng = r * 30 + 90 //r * 62 + 73
             lng = lng.toFixed(6)
-            let lat = r * 35 + 10 // r * 70 + 3
+            let j = Math.random();
+            let lat = j * 15 + 25 // r * 70 + 3
             lat = lat.toFixed(6)
-            let count = Math.ceil(r * 100)
+            let k = Math.random();
+            let count = Math.ceil(k * 100)
             item.lng = parseFloat(lng);
             item.lat = parseFloat(lat);
             item.count = count
