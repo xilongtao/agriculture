@@ -9,10 +9,10 @@
                     <router-link to="sale-list">我要买</router-link>
                     <!--<a v-link="{path: '/sale-list'}">我要买</a>-->
                 </li>
-                <li>
+                <li :class="{ active : buyListActive}">
                     <router-link to="buy-list">我要卖</router-link>
                 </li>
-                <li>
+                <li :class="{ active : accountActive}">
                     <router-link to="login">账户</router-link>
                 </li>
             </ul>
@@ -32,6 +32,12 @@ export default {
     }, 
     saleListActive: function () {
         return this.$route.path == '/sale-list'
+    },
+    buyListActive: function() {
+        return this.$route.path == '/buy-list'
+    },
+    accountActive: function() {
+        return this.$route.path == '/login'
     }
   }
   // data: function () {
