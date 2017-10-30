@@ -5,13 +5,13 @@
             <form class="form-horizontal">
                 <div class="form-group">
                     <label class="sr-only"></label>
-                    <div class="col-xs-8 col-xs-offset-2">
+                    <div class="col-xs-10 col-xs-offset-1">
                         <input class="form-control" placeholder="手机号" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="sr-only"></label>
-                    <div class="col-xs-6 col-xs-offset-2">
+                    <div class="col-xs-8 col-xs-offset-1">
                         <input class="form-control" placeholder="手机验证码" />
                     </div>
                     <div class="col-xs-2">
