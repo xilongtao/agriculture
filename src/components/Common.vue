@@ -1,9 +1,9 @@
 <template>
     <div class="container-fluid">
         <my-header home-active="true"></my-header>
-            <transition name="s">
-                <router-view />
-            </transition>
+            
+            <router-view />
+            
         <empty ></empty>
     </div>
 </template>
