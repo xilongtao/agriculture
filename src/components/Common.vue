@@ -1,9 +1,9 @@
 <template>
     <div class="container-fluid">
         <my-header home-active="true"></my-header>
-       
-        <router-view />
-        
+            <transition name="s">
+                <router-view />
+            </transition>
         <empty ></empty>
     </div>
 </template>
@@ -19,5 +19,13 @@ export default {
 </script>
 
 <style>
+.s-enter, .s-enter-active {
+  transform: translateX(100%);
+  transition: transform .3s ease-in-out;
+}
 
+.s-leave, .s-leave-active {
+  transform: translateX(-100%);
+  transition: transform .3s ease-in-out;
+}
 </style>
