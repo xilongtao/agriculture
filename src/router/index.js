@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
+
+
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 import Common from '@/components/Common'
 import CommonIndex from '@/components/CommonIndex'
 import SaleList from '@/components/SaleList'
 import BuyList from '@/components/BuyList'
 import Login from '@/components/account/Login'
-
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-
+import UserCenterHome from '@/components/account/UserCenterHome'
 
 // Router.prototype.go  = function () {
 //   this.isBack = true
@@ -25,32 +26,38 @@ const MyRouter = new Router({
     /*页面的*/
     {
       path: '/',
-      name: 'Index',
+      name: 'index',
       redirect: '/index',
       component: Common,
       children: [
         {
           path: 'index',
-          name: 'Index-Index',
+          name: 'index-index',
           component: CommonIndex
         },
         {
           path: 'sale-list',
-          name: 'Index-Sale-List',
+          name: 'index-sale-list',
           component: SaleList
         },
         {
           path: 'buy-list',
-          name: 'Index-Buy-List',
+          name: 'index-buy-list',
           component: BuyList
-        }
+        },
+        /*登录的*/
+        {
+          path: '/login',
+          name: 'login',
+          component: Login
+        },
       ]
     },
-    /*登录的*/
+    /*用户中心首页*/
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
+      path: '/user',
+      name: 'user-center-home',
+      component: UserCenterHome
     }
   ]
 })

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <my-header home-active="true"></my-header>
             
-            <router-view />
+        <router-view />
             
         <empty ></empty>
     </div>
