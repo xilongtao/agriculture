@@ -11,6 +11,21 @@
             </div>
             <div class="user-center-home-body"></div>
         </div>
+        
+        <div class="list-group">
+            <a class="list-group-item">
+                <span class="badge">></span>
+                我的信息
+            </a>
+            <a class="list-group-item">
+                <span class="badge">></span>
+                我的发布
+            </a>
+            <a class="list-group-item">
+                <span class="badge">></span>
+                发布
+            </a>
+        </div>
     </div>
 </template>
 
@@ -40,4 +55,5 @@
         line-height: 40px;
         text-align: center;
     }
+
 </style>
