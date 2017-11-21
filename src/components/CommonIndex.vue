@@ -110,7 +110,12 @@ export default {
     }
   },
   mounted: function () {
-     var echarts = require('echarts');
+    var echarts = require('echarts/lib/echarts');
+    require('echarts/lib/chart/line');
+    // 引入提示框和标题组件
+    require('echarts/lib/component/tooltip');
+    require('echarts/lib/component/title');
+    require("echarts/lib/component/legendScroll");//图片上的标识
     var mychats = echarts.init(document.getElementById('echarts'));
     
     var latest7 = [];
