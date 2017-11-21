@@ -1,9 +1,10 @@
 <template>
     <div class="container-fluid">
         <my-header home-active="true"></my-header>
-            
-        <router-view />
-            
+        
+        <div class="row">
+          <router-view ></router-view>
+        </div>  
         <empty ></empty>
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <!--列表模块-->
-    <div class="row">
+    <div class="col-xs-12">
         <ul class="list-group">
             <li class="list-group-item">
               求购信息

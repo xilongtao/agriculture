@@ -1,7 +1,7 @@
 <template>
 
     <!--搜索模块-->
-    <div class="row">
+    <div>
         <div class="col-xs-12 text-center">
             <p class="bg-success common-index-title">中国苹果分布图</p>
         </div>
@@ -34,33 +34,38 @@
         </div>
         <!--信息表格-->
         <div class="col-xs-12 info">
-            <table class="table table-bordered">
+            <table class="table">
                 <tr>
-                    <td>种植面积</td>
-                    <td>3000亩</td>
-                    <td>预期价格</td>
-                    <td>10元/斤</td>
+                    <td class="text-center">种植面积</td>
+                    <td class="text-center">3000亩</td>
+                    <td class="text-center">预期价格</td>
+                    <td class="text-center">10元/斤</td>
                 </tr>
                 <tr>
-                    <td>种植面积</td>
-                    <td>3000亩</td>
-                    <td>预期价格</td>
-                    <td>10元/斤</td>
+                    <td class="text-center">种植面积</td>
+                    <td class="text-center">3000亩</td>
+                    <td class="text-center">预期价格</td>
+                    <td class="text-center">10元/斤</td>
                 </tr>
             </table>
         </div>
+        <div class="col-xs-12">
+            <h5 class="text-center">苹果最近7日价格图</h5>
+            <div id="echarts"></div>
+        </div>
+        <sale-list></sale-list>
     </div>
-
 </template>
 <script>
 import MyConfig from '../config'
 
 import {BaiduMap} from 'vue-baidu-map'
 import {BmlHeatmap} from 'vue-baidu-map'
+import SaleList from '@/components/SaleList'
 
 export default {
   name: 'index',
-  components: {BaiduMap, BmlHeatmap},
+  components: {BaiduMap, BmlHeatmap, SaleList},
   data () {
     return {
         data: [
@@ -103,8 +108,73 @@ export default {
         this.data = tmpData
         this.buttonStr = '搜索';
     }
+  },
+  mounted: function () {
+     var echarts = require('echarts');
+    var mychats = echarts.init(document.getElementById('echarts'));
+    
+    var latest7 = [];
+    for (let i = 7; i >= 1; i --) {
+        let date = new Date();
+        date.setDate(date.getDate() - i);
+        let dateStr = date.toLocaleDateString();
+        latest7.push(dateStr);
+    }
+    var option = {
+        // title: {
+        //     text: '最近7天苹果价格曲线图'
+        // },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['地头价','市场价','批发价']
+        },
+        grid: {
+            left: '0%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: latest7
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name:'地头价',
+                type:'line',
+                stack: '总量',
+                data:[120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name:'市场价',
+                type:'line',
+                stack: '总量',
+                data:[220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name:'批发价',
+                type:'line',
+                stack: '总量',
+                data:[150, 232, 201, 154, 190, 330, 410]
+            }
+        ]
+    };
+    mychats.setOption(option);
   }
 }
+
+
 </script>
 
 <style>
@@ -132,5 +202,10 @@ div.info {
 }
 p.common-index-title {
     margin: 5px 0;
+}
+
+#echarts {
+    width: 100%;
+    height: 300px;
 }
 </style>
