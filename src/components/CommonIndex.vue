@@ -38,13 +38,13 @@
                 <tr>
                     <td class="text-center">种植面积</td>
                     <td class="text-center">3000亩</td>
-                    <td class="text-center">预期价格</td>
+                    <td class="text-center">市场价</td>
                     <td class="text-center">10元/斤</td>
                 </tr>
                 <tr>
-                    <td class="text-center">种植面积</td>
+                    <td class="text-center">地头价</td>
                     <td class="text-center">3000亩</td>
-                    <td class="text-center">预期价格</td>
+                    <td class="text-center">批发价</td>
                     <td class="text-center">10元/斤</td>
                 </tr>
             </table>
